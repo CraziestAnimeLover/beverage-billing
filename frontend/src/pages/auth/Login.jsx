@@ -93,34 +93,38 @@ const Login = () => {
             <p className="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
               <FiShield className="text-indigo-400" /> Quick Demo Credentials (Click to load):
             </p>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => fillDemo('9876543210', 'admin123')}
-                className="text-left px-2.5 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 text-indigo-300 text-xs font-medium transition"
+                onClick={() => fillDemo('9015088766', 'admin123')}
+                className="text-left px-3 py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 text-indigo-300 text-xs font-medium transition"
               >
-                👑 <strong>Admin Dealer</strong>
+                <div>👑 <strong>Admin Dealer</strong></div>
+                <div className="text-[10px] text-slate-400 font-mono mt-0.5">9015088766 • admin123</div>
               </button>
               <button
                 type="button"
                 onClick={() => fillDemo('9811122233', 'sharma123')}
-                className="text-left px-2.5 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition"
+                className="text-left px-3 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition"
               >
-                🏪 <strong>Sharma Store</strong>
+                <div>🏪 <strong>Sharma Store</strong></div>
+                <div className="text-[10px] text-slate-400 font-mono mt-0.5">9811122233 • sharma123</div>
               </button>
               <button
                 type="button"
                 onClick={() => fillDemo('9822233344', 'raj123')}
-                className="text-left px-2.5 py-1.5 rounded-lg bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/30 text-amber-300 text-xs font-medium transition"
+                className="text-left px-3 py-2 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/30 text-amber-300 text-xs font-medium transition"
               >
-                🏬 <strong>Raj Traders</strong>
+                <div>🏬 <strong>Raj Traders</strong></div>
+                <div className="text-[10px] text-slate-400 font-mono mt-0.5">9822233344 • raj123</div>
               </button>
               <button
                 type="button"
                 onClick={() => fillDemo('9833344455', 'abc123')}
-                className="text-left px-2.5 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-300 text-xs font-medium transition"
+                className="text-left px-3 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-300 text-xs font-medium transition"
               >
-                🍹 <strong>ABC Restaurant</strong>
+                <div>🍹 <strong>ABC Restaurant</strong></div>
+                <div className="text-[10px] text-slate-400 font-mono mt-0.5">9833344455 • abc123</div>
               </button>
             </div>
           </div>
