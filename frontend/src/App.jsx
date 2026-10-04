@@ -10,6 +10,7 @@ import UserLayout from './layouts/UserLayout';
 
 // Auth
 import Login from './pages/auth/Login';
+import InstallPwaBanner from './components/InstallPwaBanner';
 
 // Lazy Loaded Admin Pages (Code-split to avoid loading for mobile customer app)
 const AdminDashboard = lazy(() => import('./pages/admin/Dashboard'));
@@ -131,6 +132,7 @@ function App() {
                 {/* Fallback */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
+              <InstallPwaBanner />
             </Suspense>
           </BrowserRouter>
         </CartProvider>

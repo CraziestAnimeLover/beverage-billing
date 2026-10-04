@@ -1,0 +1,63 @@
+name: Build Android APK (web.apk)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build Web Application
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Sync Capacitor Android
+        run: |
+          cd frontend
+          npx cap sync android
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build Android Debug APK
+        run: |
+          cd frontend/android
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Rename APK for Easy Download
+        run: |
+          cp frontend/android/app/build/outputs/apk/debug/app-debug.apk frontend/android/app/build/outputs/apk/debug/BeverageDealer-web.apk
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BeverageDealer-web-apk
+          path: frontend/android/app/build/outputs/apk/debug/BeverageDealer-web.apk
+          retention-days: 30
